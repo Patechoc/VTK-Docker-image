@@ -4,6 +4,10 @@ MAINTAINER Patrick Merlot <patrick.merlot@gmail.com>
 ## inspired from  Matt McCormick's Docker image: https://github.com/KitwareMedical/docker-pluslib/blob/master/Dockerfile
 ## Following also instruction stated in http://www.vtk.org/Wiki/VTK/Configure_and_Build and https://www.comp.nus.edu.sg/~leowwk/install-vtk.html
 
+## SETTING PATHS annd ENVIRONMENT VARIABLES
+ENV PATH ${PATH}:/usr/bin:/bin:/usr/sbin:/sbin
+ENV DEBIAN_FRONTEND noninteractive
+
 ## INSTALL DEPENDENCIES
 RUN apt-get update
 
@@ -26,7 +30,8 @@ RUN apt-get install -y \
 RUN cmake --version
 RUN ctest --version
 RUN make --version
-RUN vtkWrapPython --version
+RUN echo $PATH
+
 
 ## DOWNLOAD VTK SOURCE
 RUN mkdir -p /projects
@@ -43,7 +48,7 @@ RUN git fetch origin
 RUN git rebase origin/master
 
 ## ------ MANUAL COMMANDS TO PERFORM WHILE RUNNING THE IMAGE IN DOCKER  --------
-ADD configure_with_ccmake.sh .
-ADD build_compile_install_test.sh .
+ADD configure_with_ccmake.sh /projects/VTK/
+ADD build_compile_install_test.sh /projects/VTK/
 RUN chmod +x configure_with_ccmake.sh build_compile_install_test.sh
 CMD [ "sh", "-c", "configure_with_ccmake.sh"]
