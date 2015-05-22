@@ -51,4 +51,4 @@ RUN git rebase origin/master
 ADD configure_with_ccmake.sh /projects/VTK/
 ADD build_compile_install_test.sh /projects/VTK/
 RUN chmod +x configure_with_ccmake.sh build_compile_install_test.sh
-CMD [ "sh", "-c", "configure_with_ccmake.sh"]
+CMD [ "sh", "-c", "/projects/VTK/configure_with_ccmake.sh"]
