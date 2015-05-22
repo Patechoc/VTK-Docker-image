@@ -19,7 +19,7 @@ RUN apt-get install -y \
      python-vtk \
      ninja-build \
      subversion \
-     tcl_vtk
+     tcl-vtk
 
 
 ## VERSION's DEPENDENCIES

@@ -25,9 +25,13 @@ The latest automated build from this repository build and compiles VTK with some
 
 ## Commands
 ### Building the Docker image from the Dockerfile
-sudo docker build --rm -t patrickmerlot/vtk6 .
+```shell
+$ sudo docker build --rm -t patrickmerlot/vtk6 .
+```
 ### Running VTK within Docker
-sudo docker run -ti patrickmerlot/vtk6
+```shell
+$ sudo docker run -ti patrickmerlot/vtk6
+```
 
 ### Launch the test suite (Ctest)
 Check the status of this build by yourself like so:
@@ -38,8 +42,9 @@ root@15d49326bea0:/projects/VTK/BUILD-DEFAULT# ctest
 ```
 
 ## VTK Example for testing
-http://www.bu.edu/tech/support/research/training-consulting/online-tutorials/vtk/
-http://www.vtk.org/Wiki/VTK/Examples/Python/Cylinder
+- http://www.bu.edu/tech/support/research/training-consulting/online-tutorials/vtk/
+
+- http://www.vtk.org/Wiki/VTK/Examples/Python/Cylinder
 
 ## TODO
 ### VTK CDash Dashboard (nightly testing on various plateform)
