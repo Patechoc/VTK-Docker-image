@@ -5,7 +5,7 @@ mkdir -p /opt/VTK-build
 cd /opt/VTK-build
 pwd
 echo "Follow advice from http://www.vtk.org/Wiki/VTK/Configure_and_Build#Configure_VTK_with_CMake"
- ccmake /projects/VTK
+ccmake /projects/VTK
 
 
 

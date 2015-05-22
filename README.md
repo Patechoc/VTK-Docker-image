@@ -20,24 +20,24 @@ This repository contains a Dockerfile that builds VTK (version 6) on top of Ubun
 ## A work in progress...
 
 Still working on the GUI problem within Docker. Not a fully running VTK yet, but soon! ;)
-The latest automated build from this repository build and compiles VTK with some tests failing (maybe due to the abscence of X server detected), and is available on [DockerHub](https://registry.hub.docker.com/u/patrickmerlot/vtk6/).
+The latest automated build from this repository build and compiles VTK with some tests failing (maybe due to the abscence of X server detected), and is available on [DockerHub](https://registry.hub.docker.com/u/patrickmerlot/vtk/).
 
 
 ## Commands
 ### Building the Docker image from the Dockerfile
 ```shell
-$ sudo docker build --rm -t patrickmerlot/vtk6 .
+$ sudo docker build --rm -t patrickmerlot/vtk .
 ```
 ### Running VTK within Docker
 ```shell
-$ sudo docker run -ti patrickmerlot/vtk6
+$ sudo docker run -ti patrickmerlot/vtk
 ```
 
 ### Launch the test suite (Ctest)
 Check the status of this build by yourself like so:
 
 ```shell
-$ sudo docker run -ti patrickmerlot/vtk6
+$ sudo docker run -ti patrickmerlot/vtk
 root@15d49326bea0:/projects/VTK/BUILD-DEFAULT# ctest
 ```
 

@@ -7,6 +7,8 @@ MAINTAINER Patrick Merlot <patrick.merlot@gmail.com>
 ## SETTING PATHS annd ENVIRONMENT VARIABLES
 ENV PATH ${PATH}:/usr/bin:/bin:/usr/sbin:/sbin
 ENV DEBIAN_FRONTEND noninteractive
+ENV PYTHON_INCLUDE_DIR ${PYTHON_INCLUDE_DIR}:/usr/include/python2.7
+ENV PYTHON_LIBRARY ${PYTHON_LIBRARY}:/usr/lib/python2.7/config-x86_64-linux-gnu/libpython2.7.so
 
 ## INSTALL DEPENDENCIES
 RUN apt-get update
