@@ -47,5 +47,7 @@ root@15d49326bea0:/projects/VTK/BUILD-DEFAULT# ctest
 - http://www.vtk.org/Wiki/VTK/Examples/Python/Cylinder
 
 ## TODO
-### VTK CDash Dashboard (nightly testing on various plateform)
-### VTK continuous delivery (using Wercker)
+- Testing
+- short tutorial/get-started
+- CDash Dashboard (nightly testing on various plateform)
+- VTK continuous delivery (using Wercker)
