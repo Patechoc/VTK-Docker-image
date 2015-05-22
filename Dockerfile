@@ -7,8 +7,10 @@ MAINTAINER Patrick Merlot <patrick.merlot@gmail.com>
 ## SETTING PATHS annd ENVIRONMENT VARIABLES
 ENV PATH ${PATH}:/usr/bin:/bin:/usr/sbin:/sbin
 ENV DEBIAN_FRONTEND noninteractive
-ENV PYTHON_INCLUDE_DIR ${PYTHON_INCLUDE_DIR}:/usr/include/python2.7
-ENV PYTHON_LIBRARY ${PYTHON_LIBRARY}:/usr/lib/python2.7/config-x86_64-linux-gnu/libpython2.7.so
+ENV PYTHON_INCLUDE_DIR   ${PYTHON_INCLUDE_DIR}:/usr/include/python2.7
+ENV PYTHON_INCLUDE_DIRS ${PYTHON_INCLUDE_DIRS}:/usr/include/python2.7
+ENV PYTHON_LIBRARY      ${PYTHON_LIBRARY}:/usr/lib/python2.7/config-x86_64-linux-gnu/libpython2.7.so
+ENV PYTHON_LIBRARIES  ${PYTHON_LIBRARIES}:/usr/lib/python2.7/config-x86_64-linux-gnu/libpython2.7.so
 
 ## INSTALL DEPENDENCIES
 RUN apt-get update
@@ -53,4 +55,4 @@ RUN git rebase origin/master
 ADD configure_with_ccmake.sh /projects/VTK/
 ADD build_compile_install_test.sh /projects/VTK/
 RUN chmod +x configure_with_ccmake.sh build_compile_install_test.sh
-CMD [ "sh", "-c", "/projects/VTK/configure_with_ccmake.sh"]
+#CMD [ "sh", "-c", "/projects/VTK/configure_with_ccmake.sh"]

@@ -43,7 +43,6 @@ root@15d49326bea0:/projects/VTK/BUILD-DEFAULT# ctest
 
 ## VTK Example for testing
 - http://www.bu.edu/tech/support/research/training-consulting/online-tutorials/vtk/
-
 - http://www.vtk.org/Wiki/VTK/Examples/Python/Cylinder
 
 ## TODO
