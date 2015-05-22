@@ -1,5 +1,17 @@
 #!/bin/sh
 
+
+## ENV VARIABLES
+PYTHON_INCLUDE_DIR=${PYTHON_INCLUDE_DIR}:/usr/include/python2.7
+PYTHON_INCLUDE_DIRS=${PYTHON_INCLUDE_DIRS}:/usr/include/python2.7
+PYTHON_LIBRARY=${PYTHON_LIBRARY}:/usr/lib/python2.7/config-x86_64-linux-gnu/libpython2.7.so
+PYTHON_LIBRARIES=${PYTHON_LIBRARIES}:/usr/lib/python2.7/config-x86_64-linux-gnu/libpython2.7.so
+
+export PYTHON_INCLUDE_DIR
+export PYTHON_INCLUDE_DIRS
+export PYTHON_LIBRARY
+export PYTHON_LIBRARIES
+
 ## CONFIGURE VTK (ccmake)
 mkdir -p /opt/VTK-build
 cd /opt/VTK-build
