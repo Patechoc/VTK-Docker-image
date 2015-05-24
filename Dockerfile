@@ -51,8 +51,29 @@ RUN ls
 RUN git fetch origin
 RUN git rebase origin/master
 
-## ------ MANUAL COMMANDS TO PERFORM WHILE RUNNING THE IMAGE IN DOCKER  --------
-ADD configure_with_ccmake.sh /projects/VTK/
-ADD build_compile_install_test.sh /projects/VTK/
-RUN chmod +x configure_with_ccmake.sh build_compile_install_test.sh
-#CMD [ "sh", "-c", "/projects/VTK/configure_with_ccmake.sh"]
+
+## CONFIGURE (similar to the use of ccmake) VTK DEBUG BUILD
+ADD setup.py /projects/VTK/
+RUN chmod +x setup.py
+RUN mkdir -p /opt/build_VTK6.2_DEBUG
+WORKDIR /opt/build_VTK6.2_DEBUG
+RUN pwd
+RUN echo "Following advice from http://www.vtk.org/Wiki/VTK/Configure_and_Build#Configure_VTK_with_CMake"
+RUN python /projects/VTK/setup.py --type=debug --timings -DBUILD_SHARED_LIBS:BOOL=ON -DBUILD_EXAMPLES:BOOL=ON -DBUILD_TESTING:BOOL=ON /opt/build_VTK6.2_DEBUG
+
+## COMPILE VTK
+WORKDIR /opt/build_VTK6.2_DEBUG
+RUN make -j4
+RUN make install
+
+
+## CHECK CMAKE CONFIGURATION VARIABLES
+echo $BUILD_SHARED_LIBS
+echo $BUILD_TESTING
+echo $CMAKE_BUILD_TYPE
+echo $CMAKE_INSTALL_PREFIX
+echo $TODO
+echo $QT_QMAKE_EXECUTABLE
+
+## CONFIGURE WITH Qt FOR A NICER UI
+echo "Configure Qt for nicer GUI: http://www.vtk.org/Wiki/VTK/Configure_and_Build#Configure_with_Qt"
