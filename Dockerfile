@@ -77,3 +77,8 @@ echo $QT_QMAKE_EXECUTABLE
 
 ## CONFIGURE WITH Qt FOR A NICER UI
 echo "Configure Qt for nicer GUI: http://www.vtk.org/Wiki/VTK/Configure_and_Build#Configure_with_Qt"
+
+
+## TEST THE NEW BUILD
+RUN ctest -R ImageHistogramStatistics
+#RUN ctest
